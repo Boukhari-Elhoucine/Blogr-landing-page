@@ -1,0 +1,368 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
+$very-light-red: hsl(13, 100%, 72%);
+$light-red: hsl(353, 100%, 62%);
+$hover-background: hsl(355, 100%, 74%);
+$headings: hsl(208, 49%, 24%);
+$footer-background: hsl(240, 10%, 16%);
+$footer-text: hsl(240, 2%, 79%);
+$white: hsl(0, 0, 100%);
+$intro-background: linear-gradient(
+  to right,
+  hsl(13, 100%, 72%),
+  hsl(353, 100%, 62%)
+);
+$body-background: linear-gradient(hsl(237, 17%, 21%), hsl(237, 23%, 32%));
+@mixin OverpassLight {
+  font-family: "Overpass", sans-serif;
+  font-weight: 300;
+}
+@mixin OverpassBold {
+  font-family: "Overpass", sans-serif;
+  font-weight: 600;
+}
+@mixin Ubuntu {
+  font-family: "Ubuntu", sans-serif;
+}
+@mixin UbuntuMedium {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+@mixin UbuntuBold {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 16px;
+  @include OverpassLight();
+}
+.header {
+  height: 100vh;
+  width: 100%;
+  background: $intro-background;
+  border-bottom-left-radius: 10rem;
+  position: relative;
+  overflow: hidden;
+  &__background {
+    object-fit: contain;
+    height: 400vh;
+    position: absolute;
+    left: -10%;
+    top: -150%;
+    z-index: 1;
+  }
+  &__up {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    height: 10vh;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 4rem;
+    &__nav {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      ul {
+        display: flex;
+        flex: 1;
+        justify-content: space-around;
+        list-style: none;
+        li {
+          color: $white;
+          cursor: pointer;
+          position: relative;
+        }
+      }
+    }
+    &__auth {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+      z-index: 2;
+    }
+  }
+  &__hero {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    position: relative;
+    z-index: 2;
+    &__h1 {
+      font-size: 4em;
+    }
+    &__h2 {
+      @include OverpassLight();
+      margin-top: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    &__cta__main {
+      background: $white;
+      outline: none;
+      color: $light-red;
+      border: 1px solid $white;
+      width: 6.5rem;
+      height: 2.2rem;
+      margin-right: 0.5rem;
+      border-radius: 1rem;
+      transition: 200ms ease;
+      cursor: pointer;
+      &:hover {
+        background: $hover-background;
+        color: $white;
+        border: 1px solid $hover-background;
+      }
+      @include UbuntuBold();
+    }
+    &__cta__second {
+      cursor: pointer;
+      background: transparent;
+      border: 1px solid $white;
+      width: 6.5rem;
+      height: 2.2rem;
+      margin-left: 0.5rem;
+      color: $white;
+      border-radius: 1rem;
+      transition: 200ms ease;
+      @include UbuntuBold();
+      &:hover {
+        background: $white;
+        color: $light-red;
+      }
+    }
+  }
+}
+#login {
+  color: $white;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 0.5rem 1.5rem;
+  @include OverpassLight();
+}
+#signup {
+  color: $light-red;
+  background: $white;
+  outline: none;
+  border: 1px solid $white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: 200ms ease;
+  @include UbuntuBold();
+  &:hover {
+    background: $hover-background;
+    border: 1px solid $hover-background;
+    color: $white;
+  }
+}
+.product,
+.company,
+.connect {
+  opacity: 0.7;
+  img {
+    transition: all 250ms ease;
+  }
+  ul {
+    position: absolute;
+    background-color: $white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transform: translateY(-10%);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 250ms ease;
+    a {
+      display: block;
+      color: #111;
+      text-decoration: none;
+      padding: 0.5rem;
+      opacity: 0.7;
+      transition: 200ms ease;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  &:focus ul {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+  &:focus img {
+    transform: rotateX(180deg);
+  }
+  &:focus {
+    opacity: 1;
+    text-decoration: underline;
+  }
+}
+.main__desktop {
+  position: relative;
+  h2 {
+    color: $headings;
+    text-align: center;
+    font-size: 2em;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    margin: 4rem 0;
+    &__left {
+      width: 50%;
+      margin: 0 4rem;
+      h3 {
+        color: $headings;
+        margin: 2rem 0;
+        font-size: 1.5em;
+      }
+      p {
+        line-height: 2rem;
+      }
+    }
+    &__right {
+      width: 50%;
+      img {
+        position: relative;
+      }
+    }
+  }
+}
+.main__phone {
+  position: relative;
+  height: 50vh;
+  width: 100%;
+  background: $body-background;
+  border-top-right-radius: 5rem;
+  border-bottom-left-radius: 5rem;
+  &__pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: 0;
+    img {
+      height: 300%;
+      position: absolute;
+      top: -170%;
+      left: -15%;
+    }
+  }
+  &__content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    &__illustration {
+      height: 100%;
+      position: relative;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      img {
+        height: 150%;
+        position: relative;
+        z-index: 1;
+        top: -20%;
+        right: 0;
+      }
+    }
+    &__text {
+      position: relative;
+      flex: 1;
+      z-index: 1;
+      color: $white;
+      h3 {
+        font-size: 2em;
+      }
+      p {
+        width: 80%;
+        line-height: 2rem;
+        font-size: 0.8em;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+.main__laptop {
+  height: 150vh;
+  display: flex;
+  align-items: center;
+  &__illustration {
+    width: 50%;
+    position: relative;
+    left: -20%;
+  }
+  &__text {
+    width: 50%;
+    h3 {
+      color: $headings;
+      font-size: 2em;
+      margin: 1rem 0;
+    }
+    p {
+      width: 80%;
+      margin-bottom: 2rem;
+      line-height: 2rem;
+      opacity: 0.8;
+    }
+  }
+}
+.footer {
+  height: 50vh;
+  display: flex;
+  width: 100%;
+  background-color: $footer-background;
+  align-items: center;
+  border-top-right-radius: 5rem;
+  &__content {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    img {
+      height: 6vh;
+      transform: translateY(-50%);
+    }
+    &__text {
+      h3 {
+        color: $white;
+        margin-bottom: 1rem;
+      }
+      ul {
+        list-style: none;
+        a {
+          line-height: 2rem;
+          color: $footer-text;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
