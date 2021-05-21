@@ -13,6 +13,12 @@ $intro-background: linear-gradient(
   hsl(13, 100%, 72%),
   hsl(353, 100%, 62%)
 );
+$intro-background-mobile: linear-gradient(
+  to bottom,
+  hsl(13, 100%, 72%),
+  hsl(353, 100%, 62%)
+);
+
 $body-background: linear-gradient(hsl(237, 17%, 21%), hsl(237, 23%, 32%));
 @mixin OverpassLight {
   font-family: "Overpass", sans-serif;
@@ -57,6 +63,11 @@ body {
     left: -10%;
     top: -150%;
     z-index: 1;
+    @media (max-width: 375px) {
+      height: 200vh;
+      top: -20%;
+      left: -70%;
+    }
   }
   &__up {
     position: relative;
@@ -81,6 +92,11 @@ body {
           position: relative;
         }
       }
+      @media (max-width: 375px) {
+        #logo {
+          width: 4rem;
+        }
+      }
     }
     &__auth {
       flex: 1;
@@ -102,11 +118,21 @@ body {
     z-index: 2;
     &__h1 {
       font-size: 4em;
+      @media (max-width: 375px) {
+        font-size: 2em;
+        text-align: center;
+        width: 80%;
+      }
     }
     &__h2 {
       @include OverpassLight();
       margin-top: 1rem;
       margin-bottom: 2.5rem;
+      @media (max-width: 375px) {
+        font-size: 1em;
+        text-align: center;
+        width: 80%;
+      }
     }
     &__cta__main {
       background: $white;
@@ -142,6 +168,9 @@ body {
         color: $light-red;
       }
     }
+  }
+  @media (max-width: 375px) {
+    background: $intro-background-mobile;
   }
 }
 #login {
@@ -230,6 +259,9 @@ body {
     width: 100%;
     overflow: hidden;
     margin: 4rem 0;
+    @media (max-width: 375px) {
+      flex-direction: column-reverse;
+    }
     &__left {
       width: 50%;
       margin: 0 4rem;
@@ -244,6 +276,9 @@ body {
     }
     &__right {
       width: 50%;
+      @media (max-width: 375px) {
+        width: 100%;
+      }
       img {
         position: relative;
       }

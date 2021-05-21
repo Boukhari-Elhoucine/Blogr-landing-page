@@ -33,6 +33,14 @@ body {
   z-index: 1;
 }
 
+@media (max-width: 375px) {
+  .header__background {
+    height: 200vh;
+    top: -20%;
+    left: -70%;
+  }
+}
+
 .header__up {
   position: relative;
   z-index: 5;
@@ -79,6 +87,12 @@ body {
   position: relative;
 }
 
+@media (max-width: 375px) {
+  .header__up__nav #logo {
+    width: 4rem;
+  }
+}
+
 .header__up__auth {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -118,11 +132,27 @@ body {
   font-size: 4em;
 }
 
+@media (max-width: 375px) {
+  .header__hero__h1 {
+    font-size: 2em;
+    text-align: center;
+    width: 80%;
+  }
+}
+
 .header__hero__h2 {
   font-family: "Overpass", sans-serif;
   font-weight: 300;
   margin-top: 1rem;
   margin-bottom: 2.5rem;
+}
+
+@media (max-width: 375px) {
+  .header__hero__h2 {
+    font-size: 1em;
+    text-align: center;
+    width: 80%;
+  }
 }
 
 .header__hero__cta__main {
@@ -165,6 +195,13 @@ body {
 .header__hero__cta__second:hover {
   background: white;
   color: #ff3d54;
+}
+
+@media (max-width: 375px) {
+  .header {
+    background: -webkit-gradient(linear, left top, left bottom, from(#ff8f70), to(#ff3d54));
+    background: linear-gradient(to bottom, #ff8f70, #ff3d54);
+  }
 }
 
 #login {
@@ -302,6 +339,15 @@ body {
   margin: 4rem 0;
 }
 
+@media (max-width: 375px) {
+  .main__desktop__content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
+
 .main__desktop__content__left {
   width: 50%;
   margin: 0 4rem;
@@ -319,6 +365,12 @@ body {
 
 .main__desktop__content__right {
   width: 50%;
+}
+
+@media (max-width: 375px) {
+  .main__desktop__content__right {
+    width: 100%;
+  }
 }
 
 .main__desktop__content__right img {
